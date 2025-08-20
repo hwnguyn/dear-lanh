@@ -2,141 +2,180 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>OPIUOI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dear Lanh 🎂</title>
   <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-      overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
+    :root{
+      --bg1:#ffb6c1;
+      --bg2:#ff99cc;
+      --accent:#ffd166;
+      --cream:#fff3e6;
+      --cake:#f7c6c7;
+      --text:#5c0a33;
+      --shadow: 0 12px 28px rgba(0,0,0,.25);
     }
-    .star {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: twinkle 2s infinite ease-in-out;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: "Segoe UI", system-ui, Roboto, Arial, sans-serif; color:var(--text);
+      background: radial-gradient(1200px 600px at 50% 20%, var(--bg2) 0%, var(--bg1) 100%);
+      display:grid; place-items:center; overflow:hidden;
     }
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 0.2; }
-    }
-    .container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    .phrase {
-      position: absolute;
-      font-size: 20px;
-      font-weight: bold;
-      color: #ffccd5;
-      text-shadow: 0 0 10px rgba(255, 192, 203, 0.8);
-      animation: fall linear forwards;
-      white-space: nowrap;
-      pointer-events: none;
-    }
-    @keyframes fall {
-      0% {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
-    }
+
+    .scene{ position:relative; width: min(720px, 94vw); padding: 32px 20px 40px; text-align:center; }
+    h1{ font-size: clamp(28px, 6vw, 48px); margin:0 0 10px; letter-spacing:.5px; }
+    .date{ font-weight:700; letter-spacing:4px; font-size: clamp(18px, 3.5vw, 22px); margin-top:6px }
+
+    .stage{ display:grid; place-items:end center; height:min(50vh, 420px); position:relative; }
+    .cake{ position:relative; width:min(360px, 86vw); height:min(180px, 36vh); display:grid; place-items:end center; }
+
+    .layers{ position:absolute; bottom:16px; width:70%; left:15%; }
+    .layer{ position:relative; width:100%; height:72px; background: var(--cake); border-radius: 16px; box-shadow: inset 0 -6px 0 rgba(0,0,0,.06), var(--shadow); }
+    .layer.top{ height:72px; border-radius: 20px; }
+
+    .cream{ position:absolute; top:-22px; left:0; right:0; height:38px; background: var(--cream); border-radius:18px 18px 0 0; box-shadow: inset 0 -6px 0 rgba(0,0,0,.05); }
+    .cream:before{ content:""; position:absolute; width:54px; height:24px; background:var(--cream); border-radius:0 0 22px 22px;
+      bottom:-16px; left:24px; box-shadow: 90px 0 0 var(--cream), 180px 0 0 var(--cream); }
+
+    .candles{ position:absolute; bottom: calc(72px + 38px); left:50%; transform:translateX(-50%); display:flex; }
+    .candle{ position:relative; width:16px; height:64px; background: repeating-linear-gradient(90deg, #ffd6d6 0 8px, #ffc3c3 8px 16px);
+      border-radius: 6px; box-shadow: inset 0 -6px rgba(0,0,0,.08); display:flex; align-items:flex-start; justify-content:center; }
+    .wick{ width:3px; height:10px; background:#222; border-radius:2px; margin-top:-8px; }
+
+    .flame{ position:absolute; top:-22px; left:50%; transform:translateX(-50%); width:18px; height:28px; border-radius:50%;
+      background: radial-gradient(ellipse at center, #fffde1 0%, #ffe08a 40%, #ffa600 70%, rgba(255,166,0,0) 72%);
+      filter: drop-shadow(0 0 12px rgba(255, 193, 7, 0.9)) drop-shadow(0 0 24px rgba(255, 222, 89, 0.8));
+      transform-origin: 50% 100%; animation: flicker .11s infinite alternate ease-in-out, sway 1.6s ease-in-out infinite; }
+    @keyframes flicker{from{transform:translateX(-50%) scaleY(1)}to{transform:translateX(-50%) scaleY(.92)}}
+    @keyframes sway{ 0%,100%{ margin-left:0 } 50%{ margin-left:2px } }
+
+    .glow{ position:absolute; top:-34px; left:50%; transform:translateX(-50%); width:44px; height:44px; border-radius:50%; background: radial-gradient(circle, rgba(255,198,74,.6), rgba(255,198,74,0)); filter: blur(2px); pointer-events:none; animation: glow 2.4s ease-in-out infinite; }
+    @keyframes glow{ 0%,100%{opacity:.9} 50%{opacity:.6} }
+
+    .smoke{ position:absolute; top:-10px; left:50%; width:6px; height:6px; background: radial-gradient(circle, rgba(200,200,200,.8), rgba(200,200,200,0)); border-radius:50%; transform:translateX(-50%);
+      animation: rise 1.4s ease-out forwards; filter: blur(.6px); opacity:.85 }
+    @keyframes rise{ 0%{ transform:translate(-50%, 0) scale(.6); opacity:.8 } 60%{ opacity:.5 } 100%{ transform:translate(calc(-50% + var(--x, 0px)), -80px) scale(1.6); opacity:0 } }
+
+    .sparkles{ position:absolute; inset:0; pointer-events:none; }
+    .sparkles i{ position:absolute; width:4px; height:4px; border-radius:50%; background: #fff; box-shadow: 0 0 8px #fff, 0 0 14px var(--accent);
+      animation: twinkle 2.2s linear infinite; opacity:.8 }
+    @keyframes twinkle{ 0%,100%{ transform:scale(.6); opacity:.5 } 50%{ transform:scale(1.2); opacity:1 } }
+
+    body.blown .flame, body.blown .glow{ opacity:0; transform:translateX(-50%) scale(.4); transition: .28s ease; animation: none; filter:none }
+
+    .firework{ position:absolute; width:8px; height:8px; border-radius:50%; background:#fff; pointer-events:none; animation: explode 1.6s ease-out forwards; }
+    @keyframes explode{ 0%{ transform:scale(0.3); opacity:1 } 80%{ opacity:1 } 100%{ transform:translate(var(--dx), var(--dy)) scale(0.6); opacity:0 } }
+
+    .card{ position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(.8); background:#fff; color:#333; padding:24px 28px; border-radius:16px; box-shadow:0 8px 28px rgba(0,0,0,.25); max-width:92%; text-align:center; font-size:17px; line-height:1.6; opacity:0; pointer-events:none; transition:all .4s ease; white-space:pre-line; }
+    .card.show{ opacity:1; pointer-events:auto; transform:translate(-50%,-50%) scale(1); }
+
+    .actions{ margin-top: 14px; display:flex; gap:10px; justify-content:center }
+    button{ appearance:none; border:0; padding:10px 14px; border-radius:999px; cursor:pointer; background:#ffe08a; color:#6b2a00; font-weight:700;
+      box-shadow: var(--shadow); transition: transform .08s ease, box-shadow .2s ease; }
+    button:hover{ transform: translateY(-1px) }
+    button:active{ transform: translateY(0) scale(.98) }
+
+    @media (max-height:640px){ .stage{ height:48vh } }
   </style>
 </head>
 <body>
-  <div class="container" id="container"></div>
+  <div class="scene">
+    <div class="sparkles" aria-hidden="true"></div>
+    <h1>🎉 Dear <strong>Lanh</strong>!</h1>
+    <div class="date">20 - 08</div>
+
+    <div class="stage">
+      <div class="cake" id="cake" tabindex="0" role="button" aria-label="Bánh sinh nhật – bấm để thổi nến">
+        <div class="layers">
+          <div class="layer top">
+            <div class="cream"></div>
+          </div>
+        </div>
+
+        <div class="candles" id="candles">
+          <div class="candle"><span class="glow"></span><span class="flame"></span><span class="wick"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="relight" hidden>Thắp nến lại</button>
+    </div>
+  </div>
+
+ <div class="card" id="card">
+  🎂 Chúc bạn <b>Lanh</b> bước sang tuổi mới <br>
+  gặp nhiều may mắn, công việc thuận lợi. <br><br>
+  Tui không biết bày tỏ lắm nên cậu thông cảm nhó, <br>
+  chúc cậu tất cảaaa &lt;3
+</div>
+
 
   <script>
-    const phrases = [
-      "Cảm ơn vì đã đợi",
-      "Ăn nhiều lên cho mau lớn nhé",
-      "Thơm gió môi em một cái",
-      "Tập đi ngủ sớm đi",
-      "Ngủ muộn hại sức khỏe lắm",
-      "Mình ộp mệt là được rồi",
-      "ộp luôn ở đây",
-      "Phạm Thu Hằng rất ngoan",
-      "Bảo bối à, tôi tự hào về em",
-      "ộp sẽ luôn ở đây",
-      "ộp iu đâyyyy",
-      "Mèo iu đâu ồi",
-      "Chị Phạm Thu Hằng mãi đỉnh",
-      "Không ai tự hào về chị, thì nay có em rồi",
-      "Đừng bỏ cuộc",
-      "new york city là đồ cờ hó",
-      "Em sẽ bảo vệ chị",
-      "Chị bảo kê đàn em này nhé",
-      "Tiểu bảo bốiiii",
-      "Mèo ơiiiii",
-      "Mèo ơi ộp đây",
-      "Có gì kể ộp nghe điiii",
-      "Chị thích là được",
-      "Vì chị xứng đáng",
-      "Mèoooo",
-      "Em ở đây nè",
-      "Ôm cái nè",
-      "Xoa xoa cái bụng cho đỡ đau nè",
-      "Ngủ sớm đi bảo bối",
-      "Tôi nhắc em"
-    ];
-
-    const container = document.getElementById('container');
-    let lastPositions = [];
-
-    function isOverlapping(x, y) {
-      return lastPositions.some(pos => Math.abs(pos.x - x) < 150 && Math.abs(pos.y - y) < 40);
+    const sparkles = document.querySelector('.sparkles');
+    for(let i=0;i<25;i++){
+      const s = document.createElement('i');
+      s.style.left = Math.random()*100+'%';
+      s.style.top = Math.random()*40+'%';
+      s.style.animationDelay = (Math.random()*2)+'s';
+      sparkles.appendChild(s);
     }
 
-    function createPhrase() {
-      let x, y;
-      let attempts = 0;
-      do {
-        x = Math.random() * 90;
-        y = -10;
-        attempts++;
-      } while (isOverlapping(x, y) && attempts < 10);
-      lastPositions.push({x, y});
+    const cake = document.getElementById('cake');
+    const relightBtn = document.getElementById('relight');
+    const card = document.getElementById('card');
+    let blown = false;
 
-      const phrase = document.createElement('div');
-      phrase.className = 'phrase';
-      phrase.textContent = phrases[Math.floor(Math.random() * phrases.length)];
-      phrase.style.left = x + 'vw';
-      phrase.style.top = y + 'vh';
-      phrase.style.animationDuration = (5 + Math.random() * 5) + 's';
-      container.appendChild(phrase);
-
-      setTimeout(() => {
-        phrase.remove();
-        lastPositions = lastPositions.filter(pos => pos.x !== x || pos.y !== y);
-      }, 10000);
-    }
-
-    function createStars(count) {
-      for (let i = 0; i < count; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        const size = Math.random() * 3 + 1 + 'px';
-        star.style.width = size;
-        star.style.height = size;
-        star.style.left = Math.random() * 100 + 'vw';
-        star.style.top = Math.random() * 100 + 'vh';
-        star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-        document.body.appendChild(star);
+    function makeSmokeBurst(){
+      const candle = document.querySelector('.candle');
+      for(let i=0;i<6;i++){
+        const p = document.createElement('span');
+        p.className='smoke';
+        p.style.setProperty('--x', (Math.random()*30-15)+'px');
+        p.style.animationDelay = (Math.random()*0.25)+'s';
+        candle.appendChild(p);
+        setTimeout(()=>p.remove(), 1600);
       }
     }
 
-    createStars(100);
-    setInterval(createPhrase, 800);
+    function makeFireworks(){
+      const colors = ['#ff3b3b','#ffcc00','#00d9ff','#9d4edd','#00ff85','#ff66cc','#00ffea'];
+      for(let i=0;i<60;i++){
+        const fw = document.createElement('span');
+        fw.className='firework';
+        fw.style.left = '50%';
+        fw.style.top = '40%';
+        const angle = Math.random()*2*Math.PI;
+        const distance = 160+Math.random()*100;
+        fw.style.background = colors[Math.floor(Math.random()*colors.length)];
+        fw.style.setProperty('--dx', Math.cos(angle)*distance+'px');
+        fw.style.setProperty('--dy', Math.sin(angle)*distance+'px');
+        document.body.appendChild(fw);
+        setTimeout(()=>fw.remove(), 1600);
+      }
+    }
+
+    function blowOut(){
+      if(blown) return;
+      blown = true;
+      document.body.classList.add('blown');
+      makeSmokeBurst();
+      makeFireworks();
+      relightBtn.hidden = false;
+      card.classList.add('show');
+    }
+
+    function relight(){
+      blown = false;
+      document.body.classList.remove('blown');
+      relightBtn.hidden = true;
+      card.classList.remove('show');
+    }
+
+    cake.addEventListener('click', blowOut);
+    cake.addEventListener('touchstart', ()=> blowOut(), {passive:true});
+    cake.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' ') blowOut(); });
+    relightBtn.addEventListener('click', relight);
   </script>
 </body>
 </html>
