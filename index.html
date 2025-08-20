@@ -14,7 +14,7 @@
       --text:#5c0a33;
       --shadow: 0 12px 28px rgba(0,0,0,.25);
     }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
       margin:0; font-family: "Segoe UI", system-ui, Roboto, Arial, sans-serif; color:var(--text);
@@ -22,60 +22,68 @@
       display:grid; place-items:center; overflow:hidden;
     }
 
-    .scene{ position:relative; width: min(720px, 94vw); padding: 32px 20px 40px; text-align:center; }
-    h1{ font-size: clamp(28px, 6vw, 48px); margin:0 0 10px; letter-spacing:.5px; }
-    .date{ font-weight:700; letter-spacing:4px; font-size: clamp(18px, 3.5vw, 22px); margin-top:6px }
+    .scene{ position:relative; width: min(720px, 94vw); padding: 24px 16px 32px; text-align:center; }
+    h1{ font-size: clamp(26px, 6vw, 44px); margin-bottom:6px; letter-spacing:.5px; }
+    .date{ font-weight:700; letter-spacing:3px; font-size: clamp(16px, 3.5vw, 20px); margin-bottom:12px }
 
-    .stage{ display:grid; place-items:end center; height:min(50vh, 420px); position:relative; }
-    .cake{ position:relative; width:min(360px, 86vw); height:min(180px, 36vh); display:grid; place-items:end center; }
+    .stage{ display:grid; place-items:end center; height:min(46vh, 380px); position:relative; }
+    .cake{ position:relative; width:min(320px, 80vw); height:min(160px, 32vh); display:grid; place-items:end center; }
 
-    .layers{ position:absolute; bottom:16px; width:70%; left:15%; }
-    .layer{ position:relative; width:100%; height:72px; background: var(--cake); border-radius: 16px; box-shadow: inset 0 -6px 0 rgba(0,0,0,.06), var(--shadow); }
-    .layer.top{ height:72px; border-radius: 20px; }
+    .layers{ position:absolute; bottom:14px; width:72%; left:14%; }
+    .layer{ position:relative; width:100%; height:64px; background: var(--cake); border-radius: 14px; box-shadow: inset 0 -5px 0 rgba(0,0,0,.06), var(--shadow); }
+    .layer.top{ height:64px; border-radius: 18px; }
 
-    .cream{ position:absolute; top:-22px; left:0; right:0; height:38px; background: var(--cream); border-radius:18px 18px 0 0; box-shadow: inset 0 -6px 0 rgba(0,0,0,.05); }
-    .cream:before{ content:""; position:absolute; width:54px; height:24px; background:var(--cream); border-radius:0 0 22px 22px;
-      bottom:-16px; left:24px; box-shadow: 90px 0 0 var(--cream), 180px 0 0 var(--cream); }
+    .cream{ position:absolute; top:-18px; left:0; right:0; height:32px; background: var(--cream); border-radius:16px 16px 0 0; box-shadow: inset 0 -5px 0 rgba(0,0,0,.05); }
+    .cream:before{ content:""; position:absolute; width:44px; height:20px; background:var(--cream); border-radius:0 0 18px 18px;
+      bottom:-14px; left:20px; box-shadow: 70px 0 0 var(--cream), 140px 0 0 var(--cream); }
 
-    .candles{ position:absolute; bottom: calc(72px + 38px); left:50%; transform:translateX(-50%); display:flex; }
-    .candle{ position:relative; width:16px; height:64px; background: repeating-linear-gradient(90deg, #ffd6d6 0 8px, #ffc3c3 8px 16px);
-      border-radius: 6px; box-shadow: inset 0 -6px rgba(0,0,0,.08); display:flex; align-items:flex-start; justify-content:center; }
-    .wick{ width:3px; height:10px; background:#222; border-radius:2px; margin-top:-8px; }
+    .candles{ position:absolute; bottom: calc(64px + 32px); left:50%; transform:translateX(-50%); display:flex; }
+    .candle{ position:relative; width:14px; height:54px; background: repeating-linear-gradient(90deg, #ffd6d6 0 7px, #ffc3c3 7px 14px);
+      border-radius: 5px; box-shadow: inset 0 -5px rgba(0,0,0,.08); display:flex; align-items:flex-start; justify-content:center; }
+    .wick{ width:2px; height:9px; background:#222; border-radius:2px; margin-top:-7px; }
 
-    .flame{ position:absolute; top:-22px; left:50%; transform:translateX(-50%); width:18px; height:28px; border-radius:50%;
+    .flame{ position:absolute; top:-18px; left:50%; transform:translateX(-50%); width:16px; height:24px; border-radius:50%;
       background: radial-gradient(ellipse at center, #fffde1 0%, #ffe08a 40%, #ffa600 70%, rgba(255,166,0,0) 72%);
-      filter: drop-shadow(0 0 12px rgba(255, 193, 7, 0.9)) drop-shadow(0 0 24px rgba(255, 222, 89, 0.8));
+      filter: drop-shadow(0 0 10px rgba(255, 193, 7, 0.9)) drop-shadow(0 0 20px rgba(255, 222, 89, 0.8));
       transform-origin: 50% 100%; animation: flicker .11s infinite alternate ease-in-out, sway 1.6s ease-in-out infinite; }
     @keyframes flicker{from{transform:translateX(-50%) scaleY(1)}to{transform:translateX(-50%) scaleY(.92)}}
     @keyframes sway{ 0%,100%{ margin-left:0 } 50%{ margin-left:2px } }
 
-    .glow{ position:absolute; top:-34px; left:50%; transform:translateX(-50%); width:44px; height:44px; border-radius:50%; background: radial-gradient(circle, rgba(255,198,74,.6), rgba(255,198,74,0)); filter: blur(2px); pointer-events:none; animation: glow 2.4s ease-in-out infinite; }
+    .glow{ position:absolute; top:-28px; left:50%; transform:translateX(-50%); width:38px; height:38px; border-radius:50%; background: radial-gradient(circle, rgba(255,198,74,.6), rgba(255,198,74,0)); filter: blur(2px); pointer-events:none; animation: glow 2.4s ease-in-out infinite; }
     @keyframes glow{ 0%,100%{opacity:.9} 50%{opacity:.6} }
 
-    .smoke{ position:absolute; top:-10px; left:50%; width:6px; height:6px; background: radial-gradient(circle, rgba(200,200,200,.8), rgba(200,200,200,0)); border-radius:50%; transform:translateX(-50%);
+    .smoke{ position:absolute; top:-8px; left:50%; width:5px; height:5px; background: radial-gradient(circle, rgba(200,200,200,.8), rgba(200,200,200,0)); border-radius:50%; transform:translateX(-50%);
       animation: rise 1.4s ease-out forwards; filter: blur(.6px); opacity:.85 }
-    @keyframes rise{ 0%{ transform:translate(-50%, 0) scale(.6); opacity:.8 } 60%{ opacity:.5 } 100%{ transform:translate(calc(-50% + var(--x, 0px)), -80px) scale(1.6); opacity:0 } }
+    @keyframes rise{ 0%{ transform:translate(-50%, 0) scale(.6); opacity:.8 } 60%{ opacity:.5 } 100%{ transform:translate(calc(-50% + var(--x, 0px)), -70px) scale(1.4); opacity:0 } }
 
     .sparkles{ position:absolute; inset:0; pointer-events:none; }
-    .sparkles i{ position:absolute; width:4px; height:4px; border-radius:50%; background: #fff; box-shadow: 0 0 8px #fff, 0 0 14px var(--accent);
+    .sparkles i{ position:absolute; width:3px; height:3px; border-radius:50%; background: #fff; box-shadow: 0 0 6px #fff, 0 0 12px var(--accent);
       animation: twinkle 2.2s linear infinite; opacity:.8 }
-    @keyframes twinkle{ 0%,100%{ transform:scale(.6); opacity:.5 } 50%{ transform:scale(1.2); opacity:1 } }
+    @keyframes twinkle{ 0%,100%{ transform:scale(.6); opacity:.5 } 50%{ transform:scale(1.1); opacity:1 } }
 
     body.blown .flame, body.blown .glow{ opacity:0; transform:translateX(-50%) scale(.4); transition: .28s ease; animation: none; filter:none }
 
-    .firework{ position:absolute; width:8px; height:8px; border-radius:50%; background:#fff; pointer-events:none; animation: explode 1.6s ease-out forwards; }
+    .firework{ position:absolute; width:7px; height:7px; border-radius:50%; background:#fff; pointer-events:none; animation: explode 1.6s ease-out forwards; }
     @keyframes explode{ 0%{ transform:scale(0.3); opacity:1 } 80%{ opacity:1 } 100%{ transform:translate(var(--dx), var(--dy)) scale(0.6); opacity:0 } }
 
-    .card{ position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(.8); background:#fff; color:#333; padding:24px 28px; border-radius:16px; box-shadow:0 8px 28px rgba(0,0,0,.25); max-width:92%; text-align:center; font-size:17px; line-height:1.6; opacity:0; pointer-events:none; transition:all .4s ease; white-space:pre-line; }
+    .card{ position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(.9); background:#fff; color:#333; padding:20px; border-radius:14px; box-shadow:0 6px 20px rgba(0,0,0,.22); max-width:90%; text-align:center; font-size:16px; line-height:1.4; opacity:0; pointer-events:none; transition:all .4s ease; }
     .card.show{ opacity:1; pointer-events:auto; transform:translate(-50%,-50%) scale(1); }
 
-    .actions{ margin-top: 14px; display:flex; gap:10px; justify-content:center }
-    button{ appearance:none; border:0; padding:10px 14px; border-radius:999px; cursor:pointer; background:#ffe08a; color:#6b2a00; font-weight:700;
-      box-shadow: var(--shadow); transition: transform .08s ease, box-shadow .2s ease; }
+    .actions{ margin-top: 12px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap }
+    button{ appearance:none; border:0; padding:8px 12px; border-radius:999px; cursor:pointer; background:#ffe08a; color:#6b2a00; font-weight:700;
+      box-shadow: var(--shadow); transition: transform .08s ease, box-shadow .2s ease; font-size:15px }
     button:hover{ transform: translateY(-1px) }
-    button:active{ transform: translateY(0) scale(.98) }
+    button:active{ transform: translateY(0) scale(.97) }
 
-    @media (max-height:640px){ .stage{ height:48vh } }
+    #blow{ background:#ffd166; color:#4a2500; }
+
+    @media (max-width:480px){
+      .card{ font-size:15px; padding:16px; }
+      h1{ font-size:22px }
+      .date{ font-size:14px }
+    }
+
+    @media (max-height:640px){ .stage{ height:44vh } }
   </style>
 </head>
 <body>
@@ -99,17 +107,17 @@
     </div>
 
     <div class="actions">
+      <button id="blow">Thổi nến</button>
       <button id="relight" hidden>Thắp nến lại</button>
     </div>
   </div>
 
- <div class="card" id="card">
-  🎂 Chúc bạn <b>Lanh</b> bước sang tuổi mới <br>
-  gặp nhiều may mắn, công việc thuận lợi. <br><br>
-  Tui không biết bày tỏ lắm nên cậu thông cảm nhó, <br>
-  chúc cậu tất cảaaa &lt;3
-</div>
-
+  <div class="card" id="card">
+    🎂 Chúc bạn <b>Lanh</b> bước sang tuổi mới<br>
+    gặp nhiều may mắn, công việc thuận lợi.<br><br>
+    Tui không biết bày tỏ lắm nên cậu thông cảm nhó,<br>
+    chúc cậu tất cảaaa <3
+  </div>
 
   <script>
     const sparkles = document.querySelector('.sparkles');
@@ -122,6 +130,7 @@
     }
 
     const cake = document.getElementById('cake');
+    const blowBtn = document.getElementById('blow');
     const relightBtn = document.getElementById('relight');
     const card = document.getElementById('card');
     let blown = false;
@@ -162,6 +171,7 @@
       makeSmokeBurst();
       makeFireworks();
       relightBtn.hidden = false;
+      blowBtn.hidden = true;
       card.classList.add('show');
     }
 
@@ -169,12 +179,14 @@
       blown = false;
       document.body.classList.remove('blown');
       relightBtn.hidden = true;
+      blowBtn.hidden = false;
       card.classList.remove('show');
     }
 
     cake.addEventListener('click', blowOut);
     cake.addEventListener('touchstart', ()=> blowOut(), {passive:true});
     cake.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' ') blowOut(); });
+    blowBtn.addEventListener('click', blowOut);
     relightBtn.addEventListener('click', relight);
   </script>
 </body>
